@@ -17,18 +17,18 @@ Production-style homelab for:
 
 - LAN: `192.168.1.0/24`
 - Servers VLAN: `10.22.2.0/24`
-- Domain: `scam-dev.ru`
+- example: `example.ru`
 
 ## Services
 
-| Service | IP | Domain |
+| Service | IP | example |
 |---|---|---|
-| Proxmox | 10.22.2.2 | `pro.scam-dev.ru` |
-| Traefik + CrowdSec | 10.22.2.10 | `dashboard.scam-dev.ru` |
-| WordPress | 10.22.2.11 | `scam-dev.ru`, `www.scam-dev.ru` |
-| Nextcloud | 10.22.2.12 | `cloud.scam-dev.ru` |
+| Proxmox | 10.22.2.2 | `pro.example.ru` |
+| Traefik + CrowdSec | 10.22.2.10 | `dashboard.example.ru` |
+| WordPress | 10.22.2.11 | `example.ru`, `www.example.ru` |
+| Nextcloud | 10.22.2.12 | `cloud.example.ru` |
 | PostgreSQL | 10.22.2.13 | internal only |
-| AdGuard Home | 10.22.2.14 | `ad.scam-dev.ru` |
+| AdGuard Home | 10.22.2.14 | `ad.example.ru` |
 | MariaDB | 10.22.2.15 | internal only |
 | Redis | 10.22.2.16 | internal only |
 

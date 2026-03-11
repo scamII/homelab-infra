@@ -1,1 +1,32 @@
+http:
+  routers:
+    dashboard:
+      rule: "Host(`dashboard.scam-dev.ru`)"
+      entryPoints: [websecure]
+      tls:
+        certResolver: letsencrypt
+      service: api@internal
+      middlewares:
+        - secure-headers
+        - lan-only
 
+    proxmox:
+      rule: "Host(`pro.scam-dev.ru`)"
+      entryPoints: [websecure]
+      tls:
+        certResolver: letsencrypt
+      service: proxmox-svc
+      middlewares:
+        - secure-headers
+        - lan-only
+
+  services:
+    proxmox-svc:
+      loadBalancer:
+        serversTransport: proxmox-insecure
+        servers:
+          - url: "https://10.22.2.2:8006"
+
+  serversTransports:
+    proxmox-insecure:
+      insecureSkipVerify: true

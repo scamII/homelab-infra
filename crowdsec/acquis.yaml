@@ -1,1 +1,11 @@
+filenames:
+  - /var/log/traefik/access.log
+labels:
+  type: traefik
 
+listen_addr: 127.0.0.1:7422
+appsec_config: crowdsecurity/appsec-default
+name: traefik-appsec
+source: appsec
+labels:
+  type: appsec

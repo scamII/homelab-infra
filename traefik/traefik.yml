@@ -1,1 +1,37 @@
+global:
+  sendAnonymousUsage: false
+  checkNewVersion: true
 
+api:
+  dashboard: true
+
+log:
+  level: INFO
+
+accessLog:
+  filePath: /var/log/traefik/access.log
+
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+
+providers:
+  file:
+    directory: /etc/traefik/dynamic
+    watch: true
+
+experimental:
+  plugins:
+    bouncer:
+      moduleName: github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin
+      version: v1.4.5
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: REPLACE_ADMIN_EMAIL
+      storage: /var/lib/traefik/acme.json
+      dnsChallenge:
+        provider: timewebcloud

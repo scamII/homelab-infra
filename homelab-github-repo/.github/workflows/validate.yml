@@ -1,0 +1,27 @@
+name: validate-configs
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install yamllint
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install yamllint
+
+      - name: Lint YAML
+        run: yamllint .
+
+      - name: Verify repo files
+        run: |
+          test -f README.md
+          test -f docs/architecture.md
+          test -f docs/deployment-runbook.md

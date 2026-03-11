@@ -1,0 +1,9 @@
+*.log
+*.tmp
+.env
+.env.*
+secrets/
+acme.json
+*.sql.gz
+*.tar.gz
+.DS_Store
